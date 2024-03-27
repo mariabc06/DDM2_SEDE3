@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Conversor</title>
+      <meta charset="UTF-8">
+      <link rel="shortcut icon" href="img/icon.png">
+   </head>
+   <style>
+      .container {
+      width: 50%;
+      margin: 0 auto; 
+      text-align: center; 
+      background-color: #BBDAE8; 
+      padding: 20px; 
+      border-radius: 10px; 
+      border: solid #000 2px;
+      font-family: Arial;
+      }
+      .button{
+      width: 20%;
+      padding: 10px;
+      margin-bottom: 5px;
+      text-align: center;
+      align-items: center;
+      background-color: #fff;
+      color: #000;
+      text-decoration: none;
+      border-radius: 20px;
+      margin-top: 10px;
+      transition: background-color 0.3s;
+      font-weight: bold;
+      }
+      .button:hover{
+      background-color: #B0C4DE;
+      transform: scale(1.05);
+      }
+      .{
+      border: solid #000 2px;
+      border-radius: 15px;
+      }
+   </style>
+   
+   <body>
+      <br><br><br><br><br><br><br><br>
+      <div class="container">
+         <h2>Converter para Caixa Alta</h2>
+         <input type="text" id="inputString" placeholder="Digite uma frase">
+         &nbsp;&nbsp;&nbsp;<button onclick="converterEExibir()" class="button">Converter</button>
+         <strong>
+            <p id="resultado"></p>
+         </strong>
+      </div>
+	  
+	  <script>
+         function converterParaMaiusculo(frase) {
+             return frase.toUpperCase();
+         }
+         function converterEExibir() {
+             var inputString = document.getElementById("inputString").value;
+             var resultado = converterParaMaiusculo(inputString);
+             document.getElementById("resultado").innerText = resultado;
+         }
+      </script>
+   </body>
+</html>

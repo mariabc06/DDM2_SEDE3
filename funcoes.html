@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Funções</title>
+    <meta charset="UTF-8" />
+    <link rel="shortcut icon" href="img/icon.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      	  .container {
+        width: 50%;
+        margin: 0 auto;
+        text-align: center;
+        background-color: #BBDAE8;
+        padding: 20px;
+        border-radius: 10px;
+        border: solid #000 2px;
+        font-family: Arial;
+        }
+        .button{
+        width: 50%;
+        padding: 10px;
+        margin-bottom: 5px;
+        text-align: center;
+        align-items: center;
+        background-color: #fff;
+        color: #000;
+        text-decoration: none;
+        border-radius: 20px;
+        margin-top: 10px;
+        transition: background-color 0.3s;
+        font-weight: bold;
+        }
+        .button:hover{
+        background-color: #B0C4DE;
+        transform: scale(1.05);
+        }
+        .{
+        border: solid #000 2px;
+        border-radius: 15px;
+        }
+        .hr{
+        color: solid 2px #000;
+        }
+      #myDiv {
+            width: 200px;
+            height: 200px;
+            background-color: #FFE4C4;
+      border-radius: 100px;
+      border: 2px solid #000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+        }
+       #myDiv:hover{
+        transform: scale(1.05);
+        }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h2>Função Nomeada</h2>
+      <button onclick="mostrarMensagem()" class="button">Clique aqui</button>
+      <p id="mensagem1"></p>
+      <br /><br />
+
+      <script>
+        function mostrarMensagem() {
+            var elemento = document.getElementById("mensagem1");
+            elemento.innerHTML = "O botão foi clicado!";
+        }
+      </script>
+    </div>
+    <br /><br />
+
+    <div class="container">
+      <h2>função Nomeada: com argumento(parametro) e retorno</h2>
+      <div id="mensagem2"></div>
+      <button onclick="saudacao('Amigo')" class="button">
+        Clique aqui para ganhar uma laranja!
+      </button>
+      <br /><br />
+    </div>
+    <br /><br />
+    <script>
+
+      function saudacao(nome) {
+          var elemento = document.getElementById('mensagem2');
+          if (elemento) {
+              var mensagem = 'Olá, ' + nome + '! Pegue sua laranja 🍊!';
+              elemento.innerHTML = mensagem;
+          } else {
+              console.error('Elemento HTML com ID "mensagem" não encontrado.');
+          }
+      }
+    </script>
+
+    <div class="container">
+      <h2>Função com Construtor</h2>
+      <button id="createButton" class="button">Criar</button>
+      <strong><div id="output"></div></strong>
+    </div>
+    <br /><br /><br />
+
+    <script>
+      function Pessoa(nome, idade) {
+          this.nome = nome;
+          this.idade = idade;
+          this.mostrarDados = function() {
+              document.getElementById('output').innerHTML = 'Nome: ' + this.nome + ', Idade: ' + this.idade;
+          }
+      }
+
+      document.getElementById('createButton').addEventListener('click', function() {
+          var nome = prompt('Digite o nome da pessoa:');
+          var idade = parseInt(prompt('Digite a idade da pessoa:'));
+          var pessoa = new Pessoa(nome, idade);
+          pessoa.mostrarDados();
+      });
+    </script>
+
+    <div class="container">
+      <h2>Função Literal (variável)</h2>
+      <div id="myDiv"></div>
+      <button onclick="changeColor()" class="button">Mudar Cor</button>
+
+      <script>
+        function changeColor() {
+
+            var colors = ["#FA8072", "#E9967A", "#FFA07A", "#FF7F50", "#FF6347", "#FFE4B5"];
+            var randomColor = colors[Math.floor(Math.random() * colors.length)];
+            var divElement = document.getElementById("myDiv");
+            divElement.style.backgroundColor = randomColor;
+        }
+      </script>
+    </div>
+    <br /><br /><br />
+
+    <div class="container">
+      <h2>Função de Flecha(Arrow functions)</h2>
+      <strong><p id="mensagem">Clique no botão para mudar o texto.</p></strong>
+      <button id="botao" class="button">Clique Aqui</button>
+
+      <script>
+        const alterarTexto = () => {
+          const mensagem = document.getElementById('mensagem');
+          mensagem.textContent = 'Texto alterado pela função de flecha!';
+        };
+
+        document.getElementById('botao').addEventListener('click', alterarTexto);
+      </script>
+    </div>
+  </body>
+</html>

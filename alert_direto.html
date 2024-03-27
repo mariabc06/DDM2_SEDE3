@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Alerta Automático</title>
+      <link rel="shortcut icon" href="img/icon.png">
+      <style>
+	  
+         .alert {
+         padding: 20px;
+         background-color: #BBDAE8;
+         color: white;
+         margin-bottom: 15px;
+         color: #000;
+         border-radius: 8px;
+         border: solid #000 2px;
+		 font-family: Arial;
+         }
+		 
+         .closebtn {
+         margin-left: 15px;
+         color: black;
+         font-weight: bold;
+         float: right;
+         font-size: 22px;
+         line-height: 20px;
+         cursor: pointer;
+         transition: 0.3s;
+         font-weight: bold;
+         }
+
+         .closebtn:hover {
+         color: black;
+         }
+      </style>
+   </head>
+   <body>
+      <div class="alert">
+         <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+         <center>
+            <h2>Bem-vindo à nossa página!</h2>
+         </center>
+      </div>
+      <script>
+         // Função para mostrar o alerta ao carregar a página
+         window.onload = function() {
+           document.querySelector('.alert').style.display = 'block';
+         };
+      </script>
+   </body>
+</html>

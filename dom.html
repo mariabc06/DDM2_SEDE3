@@ -1,0 +1,197 @@
+<!DOCTYPE hmtl>
+<html>
+  <head>
+    <title>DOM</title>
+    <meta charset="UTF-8" />
+    <link rel="shortcut icon" href="img/icon.png" />
+  </head>
+  <style>
+    .container {
+    width: 50%;
+    margin: 0 auto;
+    text-align: center;
+    background-color: #BBDAE8;
+    padding: 20px;
+    border-radius: 10px;
+    border: solid #000 2px;
+    font-family: Arial;
+    }
+    .button{
+    width: 50%;
+    padding: 10px;
+    margin-bottom: 5px;
+    text-align: center;
+    align-items: center;
+    background-color: #fff;
+    color: #000;
+    text-decoration: none;
+    border-radius: 20px;
+    margin-top: 10px;
+    transition: background-color 0.3s;
+    font-weight: bold;
+    }
+    .button:hover{
+    background-color: #B0C4DE;
+    transform: scale(1.05);
+    }
+    .{
+    border: solid #000 2px;
+    border-radius: 15px;
+    }
+    .hr{
+    color: solid 2px #000;
+    }
+  </style>
+  <body>
+    <br />
+
+    <!-- . document.getElementById(): 
+	  
+         - elemento é uma referência a um objeto Element, ou null se um elemento com o ID especificado não estiver contido neste documento 
+         - id é uma string que diferência maiúsculas e minúsculas representando o ID único do elemento sendo procurado.-->
+
+    <div class="container">
+      <p></p>
+      <h2>
+        <center>. document.getElementById()</center>
+      </h2>
+      <p></p>
+      <hr />
+      <p id="para1">Olá, Cris Mota e Emerson Rocha!</p>
+      <button onclick="mudarCor('#BA55D3');" class="button">ROXO</button>
+      <button onclick="mudarCor('#00008B');" class="button">AZUL</button><br />
+    </div>
+    <br /><br /><br />
+    <script>
+      function mudarCor(novaCor) {
+        var elemento = document.getElementById("para1"); //
+        elemento.style.color = novaCor;
+      }
+    </script>
+
+    <!--  . document.getElementsByTagName():
+	  
+         O método aceita um nome de marca e retorna uma live de elementos com o nome da marca correspondente 
+            na ordem em que aparecem no documento.getElementsByTagName()HTMLCollection-->
+
+    <div class="container">
+      <p></p>
+      <h2>
+        <center>. document.getElementsByTagName();</center>
+      </h2>
+      <p></p>
+      <hr />
+      <h3>Primeiro cabeçalho</h3>
+      <p>Esse é o primeiro parágrafo</p>
+      <h3>Segundo cabeçalho</h3>
+      <p>Esse é o segundo parágrafo</p>
+      <button id="btnCount" class="button">Contar H3</button>
+    </div>
+    <br /><br /><br />
+    <script>
+      let btn = document.getElementById('btnCount');
+      btn.addEventListener('click', () => {
+          let headings = document.getElementsByTagName('h3');
+          alert(`O número de tags h3 é: ${headings.length}`);
+      });
+    </script>
+
+    <!-- . document.getElementsByClassName():
+	  
+         Retorna um vetor de objetos com todos os elementos filhos que possuem o nome da classe dada. 
+            Quando invocado no objeto document, o documento é examinado por completo, incluindo o nó raiz. 
+            Você também pode invocar getElementsByClassName() em qualquer elemento; isso retornaria somente elementos 
+            que são descendentes do nó raiz especificado com o nome da classe. -->
+
+    <div class="container">
+      <p>
+        <center>
+          <h2>. document.getElementsByClassName();</h2>
+        </center>
+      </p>
+
+      <p></p>
+      <hr />
+      <br />
+      <style>
+        .destacado {
+        color: #444;
+        font-weight: bold;
+        }
+      </style>
+      <p class="destacado">Esta frase está destacada.</p>
+      <p>Esta frase não está destacado.</p>
+      <button onclick="destacarFrases()" class="button">Destacar Frase</button>
+      <script>
+        function destacarFrases() {
+            var elementos = document.getElementsByClassName("destacado");
+
+            // Itera sobre os elementos e altera seu estilo
+            for (var i = 0; i < elementos.length; i++) {
+                elementos[i].style.backgroundColor = "#40E0D0";
+            }
+        }
+      </script>
+    </div>
+
+    <!-- . document.querySelector():
+	  
+         Retorna uma lista de elementos presentes no documento (usando ordenação em profundidade, pré-ordenada e transversal dos nós do documento)
+          que coincidam com o grupo de seletores especificado. O objeto retornado é uma NodeList-->
+
+	<br><br><br><div class="container">	  
+    <p>
+      <h2><center>. document.querySelector();</h2></center>
+    </p>
+	
+	<h3 id="titulo">Olá!</h3>
+	<button id="botao" class="button">Clique aqui</button>
+	
+	<script>
+	document.querySelector('#titulo').textContent = 'Olá, professor!';
+	document.querySelector('#botao').addEventListener('click', function() {
+    alert('Botão clicado!');
+	});
+	</script>
+	</div><br><br><br>
+
+      <!-- . document.querySelectorAll():
+	  Retorna uma lista de elementos presentes no documento (usando ordenação em profundidade, pré-ordenada e transversal dos
+	  nós do documento) que coincidam com o grupo de seletores especificado. O objeto retornado é uma nodelist-->
+
+    <div class="container">
+      <p>
+        <center>
+          <h2>. document.querySelectorAll();</h2>
+        </center>
+      </p>
+
+      <p></p>
+      <hr>
+      <br>
+      <style>
+        .destaca {
+        color: #222;
+        font-weight: bold;
+        }
+      </style>
+
+      <p class="paragrafo">Laranja 🍊</p>
+      <p class="paragrafo">Cereja 🍒</p>
+      <p class="paragrafo">Morangos 🍓</p>
+      <button onclick="destacarParagrafos()" class="button">
+        Destacar Parágrafos
+      </button>
+      <script>
+        function destacarParagrafos() {
+            var paragrafos = document.querySelectorAll(".paragrafo");
+
+            // Altera o estilo de todos os parágrafos selecionados
+            paragrafos.forEach(function(paragrafo) {
+                paragrafo.classList.add("destaca");
+            });
+        }
+      </script>
+    </div><br><br><br>
+  </body>
+</html>

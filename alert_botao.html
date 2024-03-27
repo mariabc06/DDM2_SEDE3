@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>Alerta Botão</title>
+	  <meta charset="UTF-8">
+      <link rel="shortcut icon" href="img/icon.png">
+   </head>
+   <style>
+      .button{
+      width: 50%;
+      padding: 10px;
+      margin-bottom: 5px;
+      text-align: center;
+      align-items: center;
+      background-color: #fff;
+      color: #000;
+      text-decoration: none;
+      border-radius: 20px;
+      margin-top: 10px;
+      transition: background-color 0.3s;
+      font-weight: bold;
+	  font-family: Arial;
+      }
+      .button:hover{
+      background-color: #BBDAE8;
+      transform: scale(1.05);
+      }
+	  
+	  
+   </style>
+   <body><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+      <center><button onclick="exibirAlerta()" class="button">Clique para exibir o alerta</button></center>
+      <script>
+         function exibirAlerta() {
+             alert("Hoje está frio!");
+             }
+      </script>
+   </body>
+</html>
